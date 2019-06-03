@@ -17,7 +17,7 @@ def main():
                 continue
             except BreakoutException:
                 pass
-            csvwriter = csv.writer(file_out,quotechar='\'', delimiter=',')
+            csvwriter = csv.writer(file_out,quotechar='\'', delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
             try:
                 csvwriter.writerow(att)
             except:
