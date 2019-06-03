@@ -17,7 +17,7 @@ def main():
                     output.append(att[i])
                 else:
                     output.append(date)
-            csvwriter = csv.writer(file_out,quotechar='\'', delimiter=',')
+            csvwriter = csv.writer(file_out,quotechar='\'', delimiter=',', quoting=csv.QUOTE_NONNUMERIC)
             try:
                 csvwriter.writerow(output)
             except:
