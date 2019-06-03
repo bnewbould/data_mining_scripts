@@ -1,19 +1,21 @@
 import csv
 
+date_column = 8
+
 def main():
-    with open('testSet.txt', errors="replace") as file:
+    with open('files/cleansample.txt', errors="replace") as file:
         lines = file.readlines()
         separator = "-"
-        file_out = open('fixed_set.txt', 'w', newline='')
+        file_out = open('files/date_fixed_set.txt', 'w', newline='')
         for att in csv.reader(lines, quotechar='\'', delimiter=','):
-            date_split = att[7].split()
+            date_split = att[date_column].split()
             day = date_split[0].zfill(2)
             month = month_to_number(date_split[1])
             year = date_split[2]
             date = day + separator + month + separator + year
             output = []
             for i in range(10):
-                if i != 7:
+                if i != date_column:
                     output.append(att[i])
                 else:
                     output.append(date)
